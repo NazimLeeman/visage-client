@@ -4,7 +4,7 @@ function StackedBar() {
     const [chartData, setChartData] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:4000/all/age')
+        fetch('https://visage-server.onrender.com/all/age')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');

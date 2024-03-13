@@ -12,7 +12,7 @@ function DetailsChart() {
     const originalLabels = useRef(null);
 
     useEffect(() => {
-        fetch('http://localhost:4000/all/answer')
+        fetch('https://visage-server.onrender.com/all/answer')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');

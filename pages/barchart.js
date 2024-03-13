@@ -4,7 +4,7 @@ function LocationBar() {
     const [chartData, setChartData] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:4000/all/location')
+        fetch('https://visage-server.onrender.com/all/location')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');

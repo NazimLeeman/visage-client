@@ -74,12 +74,14 @@ function DetailsChart() {
         if (chartData) {
             renderChart();
         }
+        // eslint-disable-next-line
     }, [chartData, sorted]);
 
     useEffect(() => {
         if (chartData) {
             renderChart();
         }
+        // eslint-disable-next-line
     }, [chartType]);
 
     let myChart = null;

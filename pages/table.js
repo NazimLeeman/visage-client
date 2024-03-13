@@ -1,6 +1,6 @@
 import React from "react";
 
-function Table({ data }) {
+function Table({ data, showTable }) {
     const tableContainerStyle = {
         display: 'flex',
         justifyContent: 'center', 
@@ -27,7 +27,12 @@ function Table({ data }) {
         padding: '8px',
         color: 'black',
     };
-    return (
+
+    if (!data) {
+        return null; 
+    }
+
+    return  (
         <div style={tableContainerStyle}>
             <table style={tableStyle}>
                 <thead>
@@ -46,7 +51,7 @@ function Table({ data }) {
                 </tbody>
             </table>
         </div>
-    );
+    ) ;
 }
 
 export default Table;

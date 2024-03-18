@@ -13,13 +13,20 @@ function LocationBar() {
             })
             .then(data => {
                 console.log(data)
-                const locations = ["California", "Florida", "New York", "Virginia", "Washington"];
+                const locationsArr = [];
+                data.forEach((answer) => {
+                  const value = answer.location;
+                  if (value && !locationsArr.includes(value)) {
+                    locationsArr.push(value);
+                      locationsArr.sort();
+                  }
+                });
+                const locations = locationsArr;
                 const locationCounts = locations.reduce((counts, location) => {
                     counts[location] = 0;
                     return counts;
                 }, {});
             
-                // Count the occurrences of each location
                 data.forEach(item => {
                     if (item.location && locationCounts.hasOwnProperty(item.location)) {
                         locationCounts[item.location]++;

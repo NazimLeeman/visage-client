@@ -13,7 +13,19 @@ function StackedBar() {
             })
             .then(data => {
                 console.log(data)
-                const ageRanges = ["21-24", "25-30", "31-35", "36-40", "41-45"];
+                const agesArr = [];
+                data.forEach((answer) => {
+                  const value = answer.age;
+                  if (value && !agesArr.includes(value)) {
+                      agesArr.push(value);
+                      agesArr.sort((a, b) => {
+                        const numA = parseInt(a.split("-")[0]);
+                        const numB = parseInt(b.split("-")[0]);
+                        return numA - numB;
+                      });
+                  }
+                });
+                const ageRanges = agesArr;
                 const maleCounts = Array.from({ length: ageRanges.length }, () => 0);
                 const femaleCounts = Array.from({ length: ageRanges.length }, () => 0);
                 data.forEach(item => {
